@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/StyleFondoL"
+    tools:context=".ContactosConversacion" >
+     <TextView        
+        android:id="@+id/txTituloConversaciones"
+        android:background="@color/blue0"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"  
+        android:text="@string/title_activity_contactos_conversacion"      
+        android:textSize="20sp" 
+        android:textColor="#FFFFFF" />
+     <ImageButton
+	    android:id="@+id/iconoBackContactosConversacion"
+	    android:layout_width="48dp"
+	    android:layout_height="48dp"
+	    android:layout_alignParentLeft="true"
+	    android:layout_marginLeft="0dp"
+	    android:background="@drawable/lineatransparente"
+	    android:contentDescription="@string/regresar"
+	    android:onClick="cerrarContactosConversacion"
+	    android:src="@drawable/btn_back"  />
+       
+    <ListView
+        android:id="@+id/listContactsConvers"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="48dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:cacheColorHint="@android:color/transparent" >
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="right"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
+        android:orientation="horizontal" >
+	
+
+	<ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:contentDescription="@string/description_image_fondo"
+            android:src="@drawable/fondo" />
+    </LinearLayout>
+
+    
+
+</RelativeLayout>

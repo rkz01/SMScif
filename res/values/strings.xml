@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SMScif</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="boton_PrincipalNuevoSMS">New SMS</string>
+    <string name="boton_PrincipalSalir">Exit</string>
+    <string name="title_activity_redactar">Create SMS</string>
+    <string name="texto_numeroRedactar">Number </string>
+    <string name="texto_MSMRedactar">Message:</string>
+    <string name="boton_cifrarRedactar">Encrypt</string>
+    <string name="boton_enviarRedactar">Send</string>
+    <string name="title_activity_ingreso_clave">Key</string>
+    <string name="texto_ingresoClave">Key less than 16 characters:</string>
+    <string name="texto_ingresoClaveDes">Enter Key:</string>
+    <string name="boton_aplicarCifradoClave">OK</string>
+    <string name="title_activity_leer">Read Message</string>
+    <string name="text_leersMS">Encrypt Message:</string>
+    <string name="text_numeroLeer">Number:</string>
+    <string name="text_fecha">Date</string>
+    <string name="text_nombreContacto">Contact Name:</string>
+    <string name="boton_leerSmsDescifrar">Decrypt</string>
+    <string name="boton_Cancelar">Cancel</string>
+    <string name="boton_PrincipalDescifrarSms">Open SMS</string>
+    <string name="title_activity_contactos">Contacts</string>
+    <string name="boton_RedactarContactos">Contacts</string>
+    <string name="boton_Aceptar">Acept</string>
+    <string name="title_activity_leer_recibidos">Conversation</string>
+    <string name="boton_AbrirSMS">Open Message</string>
+    <string name="boton_leerSmsResponder">Reply</string>
+    <string name="title_activity_contactos_mostrar">Contacts </string>
+    <string name="description_image_addcontact">Add phone number</string>
+    <string name="description_image_fondo">Encrypt your messages</string>
+    <string name="tituloCDialogo"> Important </string>
+    <string name="mensajeDescifradoDialogo">Enter key, to decrypt message</string>
+    <string name="mensajeCifradoDialogo">Enter key, to encrypt message</string>
+    <string name="mensaje1CDialogo">Enter the number, to send SMS</string>
+    <string name="mensaje2CDialogo">Enter the message</string>
+    <string name="mensaje3CDialogo">Do you want to send unencrypted message?</string>
+    <string name="mensajeEnviado">Message sent</string>
+    <string name="deshacer">Undo</string>
+    <string name="regresar">Back</string>
+  
+    <string name="mensajeFalloEnvio">Failure send SMS</string>
+    <string name="mensajeFalloProblema">Problem while send SMS</string>
+    <string name="mensajeFalloEnvioGeneric">Try again, Can not send your message.</string>
+    <string name="mensajeErrorServicio">The service is currently unavailable.</string>
+    <string name="mensajeErrorPDU">No pdu provided.</string>
+    <string name="mensajeErrorRadio">Radio was turned off.</string>
+    <string name="mensajeNuevoSms">New Message</string>
+    
+    <string name="text_descifrarSMSMostrar">Decrypted Message:</string>
+    <string name="text_etiquetaCifradoRedactar">Encrypted message, to send:</string>
+    <string name="boton_AbrirCtcsCifrarExistente">Encrypt Stored SMS</string>
+    <string name="title_activity_mostrar_smsporcontacto">Encrypt Stored SMS </string>
+    <string name="text_selectAll">Select All</string>
+    <string name="btnCifraExistentes"> Encrypt </string>
+    <string name="text_select_sms">Select SMS to encrypt</string>
+    <string name="succesful_encrypt">Successful encryption!</string>
+    <string name="title_activity_contactos_check">Select contacts</string>
+    <string name="textSelContactos">Encrypt conversation</string>
+    <string name="mensajeNoSelected">Nothing selected</string>
+    <string name="text_me">Me</string>
+    <string name="title_activity_contactos_conversacion">Conversations</string>
+    <string name="textBody">SMS Body</string>
+    <string name="mensajeEnProceso">Encrypting</string>
+    <string name="mensajeRoughDraft">Rough Draft</string>
+    <string name="mensajeNoSent">No sent</string>
+    <string name="botonForward">Forward</string>
+    <string name="tituloIngreseTxDialogo">Important</string>
+    <string name="mensajIngreseTxDialogo">Enter message to encrypt</string>
+    <string name="texto_Enviando">Sending</string>
+    <string name="title_activity_mostrar_cdialogo">Status</string>
+    
+    <string name="title_activity_ayuda">Help</string>
+    <string name="text_help_list1">About SMScif</string>
+    <string name="text_help_list2">Encrypt and send SMS</string>
+    <string name="text_help_list3">Read SMS encrypted</string> 
+    <string name="text_help_list4">Encrypt conversations</string> 
+    <string name="text_help_list5">Encrypt stored SMS</string>
+
+    <string name="text_help_tema1">The SMScif main objective is offer confidence for users SMS messaging mobile. That is, only allow the knowledge of the information to those who are authorized.\n\nFor protection of this security vulnerability mentioned above, SMScif
+    implements the encryption algorithm AES (Advanced Encryption Standard), compatible with the standard proposed by NIST (National Institute of Standards and Technology), using a 128-bit key (16 characters) defined by the user to complete the encryption process. </string>
+  	<string name="text_help_tema2">SMScif permit send an SMS text message in plain text or encrypted, asking for a password, which will only be known by the sender and receiver user.\n\n1. On the Main screen, select New SMS icon. \n2. Select or enter the contact number.\n3. Enter 
+  	your message and press the Encrypt icon. \n4. Enter a password with at least 1 letter and a maximum of 16 and press the OK icon. \n5. Click the Send button, the encrypted message will be send.</string>
+    <string name="text_help_tema3">\n1. On the main screen, select Open SMS icon. \n2. Appear listed every conversation, select the conversation of a contact.\nIn this screen you can enter, encrypt and send a SMS. \n3. Choose a encrypted message from the list. \n4. The key used by the user that sent the SMS will be requested.\n5. Press the 
+    Decrypt icon. \n\nThis view is also possible to answer the SMS using the Reply icon.</string>    
+    <string name="text_help_tema4">Is possible encrypt one or multiple stored conversations SMS, using the same key defined by the user to encrypt completely conversations. \n\n1. Press the Encrypt Stored SMS icon on the main screen. \n2. Activate the checkbox of one or multiple contacts to 
+    encrypt the entire conversation and press the Encrypt icon. \n3. Enter a password with at least 1 letter and a maximum of 16 and press the OK icon.</string>
+    <string name="text_help_tema5">You can encrypt one or multiple SMS from a specific contact, saved in store messaging mobile, whether plain text or encrypted. \n\n1. Press the Encrypt Stored SMS icon on the main screen. \n2. Select the tab > to select SMS of a specific contac.\n3. Activate 
+    the boxes for one or more messages and click the Encrypt icon.\n4. Enter a password with at least 1 letter and a maximum of 16 and press the OK icon.\n\nThe SMS selected will be saved with the encrypted content, the key with which they were encrypted is required to consult the message.</string>
+    
+</resources>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,145 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/StyleBFondo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LeerDescifrar" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="right"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
+        android:orientation="horizontal" >
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:contentDescription="@string/description_image_fondo"
+            android:src="@drawable/fondo" />
+    </LinearLayout>
+    
+    
+     <TextView
+        android:id="@+id/textNumeroSmsPersona"
+        android:text="@string/text_nombreContacto"
+        android:background="@color/blue0" 
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="0dp"
+        android:gravity="center"
+        android:layout_gravity="center"        
+        android:textColor="#FFFFFF"       
+        android:textSize="20sp"/> 
+    <ImageButton
+	    android:id="@+id/iconoBackLeerDescifrar"
+	    android:layout_width="48dp"
+	    android:layout_height="48dp"
+	    android:layout_alignParentLeft="true"
+	    android:layout_marginLeft="0dp"
+	    android:background="@drawable/lineatransparente"
+	    android:contentDescription="@string/regresar"
+	    android:onClick="cerrarLeerDescifrar"
+	    android:src="@drawable/btn_back"  />
+    
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="48dp" >	
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+        	android:layout_marginLeft="16dp"
+        	android:layout_marginRight="16dp"
+            android:orientation="vertical" >                             
+            <TextView
+                android:id="@+id/textNumeroSms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp"
+                android:layout_gravity="center"                    
+                android:textSize="14sp"
+                android:textColor="@color/greyText" />            
+            
+            <TextView
+                android:id="@+id/textEtiquetaLeerSMS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:visibility="visible"
+                android:text="@string/text_leersMS"
+                android:textColor="@color/blueGrey900Text"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/textVdescifrarSMS"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp" 
+                android:layout_marginBottom="8dp"
+                android:background="@color/white"
+                android:textColor="@color/grey900Text"
+                android:textSize="18sp">
+            </TextView>
+            <EditText
+                android:id="@+id/editTDescifrarClave"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:ems="10"  
+                android:visibility="visible"
+                android:hint="@string/texto_ingresoClaveDes"
+                android:inputType="textPassword"
+                android:maxLength="16" >
+                 <requestFocus />
+            </EditText>      
+        </LinearLayout>
+    </ScrollView>
+
+    
+    
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:stretchColumns="*" >
+     	 
+         <TableRow
+            android:background="@color/blue0">
+             <ImageButton
+                 android:id="@+id/BotonDescifrar"  
+                 android:src="@drawable/btn_decipher_g"
+                 android:layout_gravity="center"              
+                 android:layout_height="48dp"
+                 android:layout_width="0dp"
+                 android:layout_weight=".5"
+                 android:background="@drawable/lineatransparente"
+                 android:onClick="descifrar"
+                 android:contentDescription="@string/boton_leerSmsDescifrar" />
+
+             <ImageButton
+                 android:id="@+id/BotonResponder"
+                 android:src="@drawable/ic_action_reply"
+                 android:layout_gravity="center"               
+                 android:layout_height="48dp"
+                 android:layout_width="0dp"
+                 android:layout_weight=".5"
+                 android:background="@drawable/lineatransparente"
+                 android:onClick="responder"
+                 android:contentDescription="@string/boton_leerSmsResponder"/>
+         </TableRow>
+     </TableLayout>
+ 
+</RelativeLayout>

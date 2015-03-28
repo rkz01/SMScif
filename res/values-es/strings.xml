@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="app_name">SMScif</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="boton_PrincipalNuevoSMS">Nuevo SMS</string>
+    <string name="boton_PrincipalSalir">Salir</string>
+    <string name="title_activity_redactar">Redactar SMS</string>
+    <string name="texto_numeroRedactar">Número </string>
+    <string name="texto_MSMRedactar">Mensaje: </string>
+    <string name="boton_cifrarRedactar">Cifrar</string>
+    <string name="boton_enviarRedactar">Enviar</string>
+    <string name="title_activity_ingreso_clave">Clave</string>
+    <string name="texto_ingresoClave">Clave menor a 16 caracteres: </string>
+    <string name="texto_ingresoClaveDes">Ingrese clave: </string>
+    <string name="boton_aplicarCifradoClave">Aceptar</string>
+    <string name="title_activity_leer">Leer Mensaje</string>
+    <string name="text_leersMS">Mensaje cifrado: </string>
+    <string name="text_numeroLeer">Número: </string>
+    <string name="text_fecha">Fecha </string>
+    <string name="text_nombreContacto">Nombre contacto: </string>
+    <string name="boton_leerSmsDescifrar">Descifrar</string>
+    <string name="boton_Cancelar">Cancelar</string>
+    <string name="boton_PrincipalDescifrarSms">Abrir SMS</string>
+    <string name="title_activity_contactos">Contactos</string>
+    <string name="boton_RedactarContactos">Contactos</string>
+    <string name="boton_Aceptar">Aceptar</string>
+    <string name="title_activity_leer_recibidos">Conversación</string>
+    <string name="boton_AbrirSMS">Abrir Mensaje</string>
+    <string name="boton_leerSmsResponder">Responder</string>
+    <string name="title_activity_contactos_mostrar">Contactos </string>
+    <string name="description_image_addcontact">Add phone number</string>
+    <string name="description_image_fondo">Encrypt your messages</string>
+    <string name="tituloCDialogo"> Importante </string>
+    <string name="mensajeDescifradoDialogo">Ingrese clave, para descifrar mensaje</string>
+    <string name="mensajeCifradoDialogo">Ingrese clave, para cifrar mensaje</string>
+    <string name="mensaje1CDialogo">Ingrese número, para enviar SMS</string>
+    <string name="mensaje2CDialogo">Ingrese mensaje de texto</string>
+    <string name="mensaje3CDialogo">¿Desea enviar mensaje sin cifrar?</string>
+    <string name="deshacer">Deshacer</string>
+    <string name="regresar">Regresar</string>
+    
+    <string name="mensajeEnviado">Mensaje enviado</string>
+    <string name="mensajeFalloEnvio">Falló envio</string>
+    <string name="mensajeFalloProblema">Problema al enviar SMS</string>
+    <string name="mensajeFalloEnvioGeneric">Intente de nuevo, no se ha podido enviar el mensaje.</string>
+    <string name="mensajeErrorServicio">El servicio no se encuentra disponible por el momento.</string>
+    <string name="mensajeErrorPDU">No se proporciono pdu.</string>
+    <string name="mensajeErrorRadio">La línea se encuentra desactivada.</string>
+    <string name="mensajeNuevoSms">Nuevo Mensaje</string>
+    
+    <string name="text_descifrarSMSMostrar">Mensaje descifrado:</string>
+    <string name="text_etiquetaCifradoRedactar">Mensaje cifrado, a enviar:</string>
+    <string name="boton_AbrirCtcsCifrarExistente">Cifrar SMS Almacenados</string>
+    <string name="title_activity_mostrar_smsporcontacto">Cifrar SMS Almacenados</string>
+    <string name="text_selectAll">Seleccionar todo </string>
+    <string name="btnCifraExistentes"> Cifrar </string>
+    <string name="text_select_sms">Selecciona SMS a cifrar</string>
+    <string name="succesful_encrypt">Cifrado exitoso</string>
+    <string name="title_activity_contactos_check">Selecciona contactos</string>
+    <string name="textSelContactos">Cifrar conversación</string>
+    <string name="mensajeNoSelected">Nada seleccionado</string>
+    <string name="text_me">Yo</string>
+    <string name="title_activity_contactos_conversacion">Conversaciones</string>
+    <string name="textBody">Mensaje</string>
+    <string name="mensajeEnProceso">Cifrando</string>
+    <string name="mensajeRoughDraft">Borrador</string>   
+    <string name="mensajeNoSent">No enviado</string>    
+    <string name="botonForward">Reenviar</string>
+    <string name="tituloIngreseTxDialogo">Importante</string>
+    <string name="mensajIngreseTxDialogo">Ingrese texto a cifrar</string>
+    <string name="texto_Enviando">Enviando</string>
+    <string name="title_activity_mostrar_cdialogo">Estado</string> 
+  
+    <string name="title_activity_ayuda">Ayuda</string>
+    <string name="text_help_list1">Acerca de SMScif</string>
+    <string name="text_help_list2">Cifrar y enviar un SMS</string>
+    <string name="text_help_list3">Leer un SMS cifrado</string>    
+    <string name="text_help_list4">Cifrar conversaciones</string>
+    <string name="text_help_list5">Cifrar SMS guardado</string>
+      
+    <string name="text_help_tema1">SMScif tiene como objetivo principal, brindar confidencialidad a los usuarios de mensajeria móvil SMS. Es decir, sólo permite el conocimiento de la información a quien esté autorizado.\n\nPara cubrir esta vulnerabilidad de seguridad en la información
+    , SMScif implementa el algoritmo de cifrado AES (Advanced Encryption Standard), compatible con el estándar propuesto por la NIST (National Institute of Standards and Technology), utilizando una clave de 128 bits (16 caracteres) definida por el usuario para cumplir el proceso de cifrado. </string>
+    <string name="text_help_tema2">Permite enviar un mensaje de texto SMS cifrado o en texto normal, solicitando una clave, que solo será conocida por el usuario emisor y receptor. \n\n1. En la pantalla de inicio seleccione el icono Nuevo SMS.
+    \n2. Seleccione o ingrese el número del contacto.\n3. Escriba el mensaje y pulse el botón Cifrar. \n4. Escriba una clave con 1 letra como mínimo y 16 como máximo y pulse el botón superior derecho Aceptar. \n5. Pulse el botón Enviar, el mensaje cifrado será el que se enviará. </string>
+    <string name="text_help_tema3">\n1. En la pantalla de inicio seleccione el icocno Abrir SMS.\n2. Aparecerán enlistadas todas las conversaciones, elegir la conversación de un contacto.\nEn esta pantalla puede ingresar un sms, cifrarlo y enviarlo. \n3. Elegir un mensaje cifrado de la lista.\n4. Se solicitará 
+    la clave utilizada por el usuario que envió el SMS.\n5. Pulsar el icono Descifrar.\n\nEn esta vista también es posible responder el sms mediante el icono Responder.</string>    
+    <string name="text_help_tema4">Puede cifrar una o múltiples conversaciones SMS almacenadas, utilizando una misma clave definida por el usuario para cifrar las conversaciones completas.\n\n1. Presione el icono Cifrar SMS Almacenados en
+    la pantalla principal. \n2. Activar la casilla de uno o multiples contactos para cifrar la conversación completa y presionar el icono Cifrar.\n3. Escribir una clave con 1 letra como mínimo y 16 como máximo y pulse el icono Aceptar.</string>
+    <string name="text_help_tema5">Se permite cifrar uno o múltiples SMS de un contacto específico, guardados en el almacén de mensajeria del móvil, estén cifrados o en texto claro.\n\n1. Presione el icono Cifrar SMS Almacenados en la pantalla
+    principal. \n2. Seleccione la pestaña > de un contacto para elegir el mensaje. \n3. Active las casillas de uno o mas mensajes y presione el icono Cifrar.\n4. Escriba una clave con 1 letra como mínimo y 16 como máximo y pulse el icono Aceptar. \n\nLos SMS elegidos serán guardados con el contenido cifrado, se solicitará la clave con la que fueron cifrados para poder consultarlos. </string>
+    
+    </resources>
+
+
+
+
+
+
+
+

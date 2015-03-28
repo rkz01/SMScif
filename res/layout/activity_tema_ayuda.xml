@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/StyleFondoL"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textTituloTemaAyuda"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:background="@color/blue0"
+        android:gravity="center"
+        android:text="@string/title_activity_ayuda"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+    <ImageButton
+	    android:id="@+id/iconoBackTemaAyuda"
+	    android:layout_width="48dp"
+	    android:layout_height="48dp"
+	    android:layout_alignParentLeft="true"
+	    android:layout_marginLeft="0dp"
+	    android:background="@drawable/lineatransparente"
+	    android:contentDescription="@string/regresar"
+	    android:onClick="cerrarTemaAyuda"
+	    android:src="@drawable/btn_back"  />
+  
+    <ScrollView
+        android:id="@+id/scrollView1"  
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp">
+        <TextView
+            android:id="@+id/txTemaAyuda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="8dp"
+            android:textSize = "18sp"
+            android:textColor="@color/blueGrey900Text" />
+    </ScrollView>
+
+</RelativeLayout>

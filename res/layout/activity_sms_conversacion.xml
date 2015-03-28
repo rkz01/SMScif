@@ -1,0 +1,121 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/StyleFondoL"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    tools:context=".LeerREcibidos" >
+
+	 <TextView        
+	   android:id="@+id/txContacto"
+	   android:background="@color/blue0"
+	   android:layout_width="fill_parent"
+	   android:layout_height="48dp"
+	   android:gravity="center"  
+	   android:text="@string/text_nombreContacto"      
+	   android:textSize="20sp" 
+	   android:textColor="#FFFFFF" />
+	 <ImageButton
+	    android:id="@+id/iconoBackSMSConversacion"
+	    android:layout_width="48dp"
+	    android:layout_height="48dp"
+	    android:layout_alignParentLeft="true"
+	    android:layout_marginLeft="0dp"
+	    android:background="@drawable/lineatransparente"
+	    android:contentDescription="@string/regresar"
+	    android:onClick="cerrarSMSConversacion"
+	    android:src="@drawable/btn_back"  />
+	    
+	<RelativeLayout
+	   android:id="@+id/layoutEnvConv"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:layout_below="@+id/txContacto"
+       android:orientation="vertical" 
+       android:layout_gravity="bottom"  
+       android:gravity="bottom">
+	    
+	   <ListView
+	   	android:id="@+id/listaSMS"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_above="@+id/layoutScrollConv"
+		android:divider="@drawable/lineatransparente"     
+	    android:dividerHeight="4dp"   	         
+		android:cacheColorHint="@android:color/transparent" >	
+	   </ListView>    
+		    
+	   <ScrollView
+		android:id="@+id/layoutScrollConv"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:gravity="bottom"
+		android:layout_gravity="bottom">
+           			 
+	       <LinearLayout
+			        android:id="@+id/layoutLineaEdit"
+			        android:background="@color/blueGrey50"
+		        	android:layout_width="fill_parent"
+		        	android:layout_height="wrap_content"
+	         		android:orientation="vertical"
+	         		android:layout_marginTop="0dp"
+		            android:layout_marginBottom="0dp">	
+		        <TextView
+            		android:layout_width="fill_parent"
+            		android:layout_height="1dp"
+            		android:layout_marginTop="0dp"
+            		android:background="@color/grey100"/>
+	       
+               <LinearLayout
+			        android:id="@+id/layoutEditCov"
+		        	android:layout_width="fill_parent"
+		        	android:layout_height="wrap_content"
+	         		android:orientation="horizontal"
+	         		android:layout_marginTop="0dp"
+		            android:layout_marginBottom="0dp">	
+		            <ImageButton
+		                android:id="@+id/btnCifrarConv"
+		                android:background="@drawable/lineatransparente"
+		                android:layout_width="0dp"
+		                android:layout_height="48dp"
+		                android:layout_gravity="center"
+		                android:layout_weight="0.12"
+		                android:contentDescription="@string/boton_cifrarRedactar"
+		                android:onClick="cifrarConv"		                
+		                android:src="@drawable/btn_cipher" />
+		           <EditText
+					    android:id="@+id/editTSMSOutConv"
+					    android:layout_width="0dp"
+					    android:layout_height="wrap_content"	
+	                    android:layout_weight="0.7"	     		
+					    android:ems="10"
+					    android:inputType="textMultiLine"
+					    android:layout_gravity="center"
+					    android:hint="@string/boton_leerSmsResponder"
+					    android:maxLength="80"			    
+					    android:textSize="16sp" />
+		           <ImageButton
+		               android:id="@+id/btnEnviarConv"
+		               android:background="@drawable/lineatransparente"
+		               android:layout_width="0dp"
+		               android:layout_height="48dp"
+		               android:layout_gravity="center_vertical"
+		               android:layout_weight="0.12"
+		               android:contentDescription="@string/boton_enviarRedactar"
+		               android:onClick="verificarContenido"
+		               android:src="@drawable/btn_send"  />
+		           <ProgressBar
+		               android:id="@+id/barraProcesoCov"
+		               android:layout_width="48dp"
+		               android:layout_height="48dp"
+		               android:gravity="bottom"
+		               android:visibility="gone" />
+
+		        </LinearLayout>
+		       </LinearLayout> 
+       	</ScrollView>
+</RelativeLayout>
+	   
+</RelativeLayout>

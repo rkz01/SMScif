@@ -1,0 +1,57 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/StyleFondoL"
+    tools:context=".ContactosMostrar" >
+
+    <TextView
+        android:id="@+id/textTituloContactos"
+        android:text="@string/title_activity_contactos"
+        android:background="@color/blue0" 
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:layout_gravity="center"        
+        android:textColor="#FFFFFF"       
+        android:textSize="20sp"/> 
+    <ImageButton
+	    android:id="@+id/iconoBackContactos"
+	    android:layout_width="48dp"
+	    android:layout_height="48dp"
+	    android:layout_alignParentLeft="true"
+	    android:layout_marginLeft="0dp"
+	    android:background="@drawable/lineatransparente"
+	    android:contentDescription="@string/regresar"
+	    android:onClick="cerrarContactos"
+	    android:src="@drawable/btn_back"  />
+        
+    <ListView
+        android:id="@+id/listaContactos"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="48dp"
+        android:cacheColorHint="@android:color/transparent" >
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="right"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
+        android:orientation="horizontal" >
+	
+
+	<ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:contentDescription="@string/description_image_fondo"
+            android:src="@drawable/fondo" />
+    </LinearLayout>
+</RelativeLayout>

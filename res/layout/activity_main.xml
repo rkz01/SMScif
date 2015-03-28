@@ -1,0 +1,112 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/StyleVerch"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    tools:context=".MainActivity" >
+
+    <ImageButton
+        android:id="@+id/button3"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/lineatransparente"
+        android:contentDescription="@string/boton_PrincipalSalir"
+        android:onClick="salir"
+        android:src="@drawable/ic_main_close" />
+
+    <ImageButton
+        android:id="@+id/ImageButtonHelp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/lineatransparente"
+        android:contentDescription="@string/title_activity_ayuda"
+        android:onClick="abrirAyuda"
+        android:src="@drawable/ic_main_help" />
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="74dp"
+        android:layout_marginTop="48dp" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="150dp"
+                android:layout_height="135dp"
+                android:layout_marginTop="48dp"
+                android:background="@drawable/icono_main"
+                android:contentDescription="@string/description_image_fondo" />
+
+            <TextView
+                android:id="@+id/textNameApp"
+                android:layout_width="fill_parent"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/lineatransparente"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:textColor="#000000"
+                android:textSize="22sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:stretchColumns="*" >
+
+        <TableRow android:layout_width="fill_parent" >
+
+            <ImageButton
+                android:id="@+id/BotonAbrir"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight=".33"
+                android:background="@drawable/lineatransparente"
+                android:contentDescription="@string/boton_PrincipalNuevoSMS"
+                android:onClick="redactar"
+                android:src="@drawable/btn_main_sms" />
+
+            <ImageButton
+                android:id="@+id/BotonCifrarExistentes"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight=".33"
+                android:background="@drawable/lineatransparente"
+                android:contentDescription="@string/boton_AbrirCtcsCifrarExistente"
+                android:onClick="leerSMSporContacto"
+                android:src="@drawable/btn_main_cipher" />
+
+            <ImageButton
+                android:id="@+id/button4"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight=".33"
+                android:background="@drawable/lineatransparente"
+                android:contentDescription="@string/boton_PrincipalDescifrarSms"
+                android:onClick="leer"
+                android:src="@drawable/btn_main_chat" />
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>
