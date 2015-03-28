@@ -4,7 +4,7 @@
  * Requiere de la clase privada
  *  MyAdapter generador el adaptador de la lista y
  *  	poder mostrar el contenido en la lista
- *  SMSConversacionHandler.java manejador (headler) que almacenara
+ *  SMSConversacionHandler.java manejador (handler) que almacenara
  *  	toda la informacion, un objeto para cada SMS
  *  sms_recibidos.xml layout individual que representara un	solo SMS
  */

@@ -1,6 +1,5 @@
 /*
- * SMScif programa de servicio de mensajes de texto que cifra y descifra su contenido 
-          
+ * SMScif programa de servicio de mensajes de texto que cifra y descifra su contenido          
  * 
  */
 
