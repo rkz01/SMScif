@@ -1,4 +1,4 @@
-//Genera los datos para mostrarse en la vista de seleccion de multiples contactos para cifrar sus sms
+/*Genera los datos para mostrarse en la vista de seleccion de multiples contactos para cifrar sus sms*/
 package com.SMScif.cifraExixtentes;
 
 import java.util.ArrayList;
