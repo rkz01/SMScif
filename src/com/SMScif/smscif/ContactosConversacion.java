@@ -210,12 +210,12 @@ public class ContactosConversacion extends Activity {
 		overridePendingTransition(R.anim.left_in,R.anim.left_out);
 		//finish();   
 	}
-	@Override
+	/*@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.contactos_conversacion, menu);
 		return true;
-	}
+	}*/
 	/**************************************************Hilo al recibir un SMS *********************************************/
 	private class HiloNuevoSMS extends AsyncTask<String, Void, String>{		
 		  

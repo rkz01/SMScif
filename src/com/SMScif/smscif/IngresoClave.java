@@ -94,12 +94,12 @@ public class IngresoClave extends Activity {
 		smsThreadsList= null;
 		super.onDestroy();
 	}	
-	@Override
+	/*@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.ingreso_clave, menu);
 		return true;
-	}
+	}*/
 /**********************************************************************/
 	public void aplicarCifrado(View view){	
 		int tamClave = 0;
@@ -119,6 +119,7 @@ public class IngresoClave extends Activity {
 				regresoConversacion.putExtra("numero", numero);
 				regresoConversacion.putExtra("nombrePersona", persona);
 				regresoConversacion.putExtra("hilo", hilo);
+				regresoConversacion.putExtra("sms", texto);
 				startActivity(regresoConversacion);
 				finish();  //finaliza la actividad, llama a onDestroy
 			}

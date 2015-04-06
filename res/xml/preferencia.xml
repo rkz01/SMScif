@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+ 
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+      
+   
+    
+    <PreferenceCategory
+            android:title="@string/action_envioSms">
+            
+        <CheckBoxPreference
+                android:key="preferecia_envio"
+                android:title="@string/action_envioSmsCifrado"
+                android:summary="@string/action_envioSmsCdescripcion" /> 
+    </PreferenceCategory>
+
+</PreferenceScreen>

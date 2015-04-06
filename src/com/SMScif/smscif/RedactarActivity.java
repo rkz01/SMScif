@@ -6,20 +6,27 @@
  */
 package com.SMScif.smscif;
 
+import com.SMScif.preferencias.PreferenciaActivity;
+
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.view.KeyEvent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.ImageButton;
 import android.telephony.SmsManager; //manejo de mensajes de texto
@@ -90,7 +97,7 @@ public class RedactarActivity extends Activity {
 		return super.onKeyDown(keyCode, event);		
 		
 	}
-	/***************************************************************************************/
+	
 	@Override
 	protected void onDestroy(){ //al destruir la actividad
 		smsTexto = null;	
@@ -113,8 +120,39 @@ public class RedactarActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.redactar, menu);
+		
 		return true;
 	}	
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {	/*Opciones elegidas desde el menu*/
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	        case R.id.action_configuracion:
+	        	Intent preferencias = new Intent(this,PreferenciaActivity.class);
+	        	startActivity(preferencias);
+	        	overridePendingTransition(R.anim.left_in,R.anim.left_out);	//Animacion al cambiar de vista(animacion de la nueva vista, animacion de esta vista que sale)
+	            return true;
+	        
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
+	
+	@Override
+	protected void onResume(){
+		SharedPreferences preferecniaUsuario = PreferenceManager.getDefaultSharedPreferences(this); /*Instancia a preferecnias de esta app*/
+		
+		boolean enviaCifradoPref = preferecniaUsuario.getBoolean("preferecia_envio", true); /*optiene prerefencia (key, valDefecto)*/
+		
+		CheckBox checkenvioCifrado = ((CheckBox)findViewById(R.id.radioEnvioCifrado));
+		if(enviaCifradoPref){
+			checkenvioCifrado.setChecked(true);			
+		}
+		else checkenvioCifrado.setChecked(false);
+		
+		super.onResume();
+	}
 	/*********************************************************************/
 	public void ingresoClave(View view){
 		EditText editorTexto; AlertDialog.Builder dialogo = new AlertDialog.Builder(this);		
@@ -151,7 +189,7 @@ public class RedactarActivity extends Activity {
 		finish();
 	}
 	
-	public void verificarContenido(View view){   //envia un mensaje de texto
+	public void verificarContenido(View view){   
 		boolean verificarNumero = false;
 		int contenidoTextoCipher, contenidoTextoPlano;
 		EditText editorTexto;
@@ -171,7 +209,7 @@ public class RedactarActivity extends Activity {
 		contenidoTextoPlano = smsTexto.length();	/*comprobar si se tiene texto plano*/
 		
 		if ((verificarNumero == true) && (contenidoTextoCipher > 0)){
-			enviarSMS(smsCipher);		//envia texto cifrado	
+			enviarSMS(smsCipher,smsTexto);		//texto cifrado, texto plano	
 		}
 		else if(verificarNumero == false){		/*si no se ingreso numero muestra cuadro de dialogo advirtiendo*/
 			   dialog.setIcon(getResources().getDrawable(android.R.drawable.ic_dialog_info));
@@ -214,18 +252,38 @@ public class RedactarActivity extends Activity {
 		return(esNumero);
 	}
 	
-	/**********************************************************************************************************************/
-	private void enviarSMS(String textoEnviar){		
-		SmsManager sms = SmsManager.getDefault();  
+	/***************************************Envio de SMS*******************************************************************************/
+	private void enviarSMS(String txtCifrado, String txtPlano){
+		CheckBox checkenvioCifrado = ((CheckBox)findViewById(R.id.radioEnvioCifrado));
+		SmsManager sms = SmsManager.getDefault();
+		
 		Intent intentEnvio = new Intent("SMS_SENT");
-		intentEnvio.putExtra("numero", numero);		//Para que dentro del broatcastReceiver obtenga el num y texto para almacenar sms
-		intentEnvio.putExtra("texto", textoEnviar);
+		intentEnvio.putExtra("numero", numero);		//Para que dentro del broatcastReceiver obtenga el num y texto cifrado para almacenar sms
+		intentEnvio.putExtra("texto", txtCifrado);
 		
 		Context contexto = getApplicationContext();//Context de la aplicacion y no de la actividad, optimizar memoria
 		PendingIntent piEnviado = PendingIntent.getBroadcast(contexto, 0, intentEnvio, PendingIntent.FLAG_UPDATE_CURRENT);
-			//RecibeBroadcastEnvio.java recibe el PendingIntent para mostrar toast
+				
+		if(checkenvioCifrado.isChecked()){			//envio cifrado activo
+			sms.sendTextMessage(numero, null, txtCifrado, piEnviado, null); // envia mensaje, RecibeBroadcastEnvio espera respuesta de envio
+		}
+		else{										//envio cifrado desactivado
+			sms.sendTextMessage(numero, null, txtPlano, piEnviado, null); // envia mensaje, RecibeBroadcastEnvio espera respuesta de envio
+		}
+		finish();//al eliminar esta actividad vuelve a estar visible la actividad principal
+	}
+	
+	private void enviarSMS( String txtPlano){		//Usuario no cifro el SMS, no se almacenara cifrado y se enviara plano
+		SmsManager sms = SmsManager.getDefault();
 		
-		sms.sendTextMessage(numero, null, textoEnviar, piEnviado, null); // envia mensaje, RecibeBroadcastEnvio espera respuesta de envio
+		Intent intentEnvio = new Intent("SMS_SENT");
+		intentEnvio.putExtra("numero", numero);		//Para que dentro del broatcastReceiver obtenga el num y texto cifrado para almacenar sms
+		intentEnvio.putExtra("texto", txtPlano);
+		
+		Context contexto = getApplicationContext();//Context de la aplicacion y no de la actividad, optimizar memoria
+		PendingIntent piEnviado = PendingIntent.getBroadcast(contexto, 0, intentEnvio, PendingIntent.FLAG_UPDATE_CURRENT);
+				
+		sms.sendTextMessage(numero, null, txtPlano, piEnviado, null); // envia mensaje, RecibeBroadcastEnvio espera respuesta de envio
 		finish();//al eliminar esta actividad vuelve a estar visible la actividad principal
 	}
 	
@@ -253,6 +311,7 @@ public class RedactarActivity extends Activity {
 		//textoCifrado.requestFocus();		
 	}
 	
+		
 	/***********************************Al presionar icono regreso ****************************/
 	public void cerrar(View view){
 		finish();

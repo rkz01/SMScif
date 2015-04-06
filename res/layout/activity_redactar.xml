@@ -45,6 +45,14 @@
 	    android:contentDescription="@string/regresar"
 	    android:onClick="cerrar"
 	    android:src="@drawable/btn_back"  />
+	<CheckBox
+	    android:id="@+id/radioEnvioCifrado"
+	    style="@style/RadioButton"
+	    android:layout_width="48dp"
+	    android:layout_height="48dp"
+	    android:layout_alignParentRight="true"
+	    android:layout_marginRight="0dp"
+	    android:checked="true"/>
 
     <ScrollView
         android:id="@+id/scrollView1"
@@ -163,5 +171,7 @@
                 android:contentDescription="@string/boton_enviarRedactar"/>
         </TableRow>
     </TableLayout>
+
+    
 
 </RelativeLayout>

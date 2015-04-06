@@ -13,15 +13,16 @@ package com.SMScif.smscif;
 import java.util.ArrayList;
 
 import com.SMScif.auxiliares.FechaFormato;
-import com.SMScif.smscif.R.color;
-
+import com.SMScif.preferencias.PreferenciaActivity;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.ContactsContract.Data;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.app.Activity;
@@ -31,12 +32,14 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Typeface;
 import android.telephony.SmsManager;
 import android.text.format.DateFormat;
 import android.view.Menu;
 import android.widget.AdapterView;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -85,6 +88,48 @@ public class SMSConversacion extends Activity {
 		getMenuInflater().inflate(R.menu.leer_recibidos, menu);
 		return true;
 	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {	/*Opciones elegidas desde el menu*/
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	        case R.id.action_configuracion:
+	        	Intent preferencias = new Intent(this,PreferenciaActivity.class);
+	        	startActivity(preferencias);
+	        	overridePendingTransition(R.anim.left_in,R.anim.left_out);	//Animacion al cambiar de vista(animacion de la nueva vista, animacion de esta vista que sale)
+	            return true;
+	            
+	        case R.id.action_nuevoSms:	        	
+	        	String textoVacio = "";//envia a redactar ya que abre por primera vez
+	        	String numeroVacio = ""; //envia a redectar 
+	        	String personaVacio = "";
+	        	Intent abrirRedactar = new Intent(this,RedactarActivity.class); //evento llama layout
+	        	abrirRedactar.putExtra("sms", textoVacio);//aqui esta vacio ya que es el inicio, mensaje plano no existe 
+	        	abrirRedactar.putExtra("smsCifrado", textoVacio);//aqui esta vacio ya que es el inicio, mensaje cifrado no existe qui
+	        	abrirRedactar.putExtra("numero", numeroVacio);//esta vacio numero 
+	        	abrirRedactar.putExtra("nombrePersona", personaVacio);//esta vacio nombre contacto 
+	        	startActivity(abrirRedactar);
+	        	overridePendingTransition(R.anim.left_in,R.anim.left_out);	//Animacion al cambiar de vista(animacion de la nueva vista, animacion de esta vista que sale)
+	            return true;
+	        
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
+	@Override
+	protected void onResume(){
+		SharedPreferences preferecniaUsuario = PreferenceManager.getDefaultSharedPreferences(this); /*Instancia a preferecnias de esta app*/
+		
+		boolean enviaCifradoPref = preferecniaUsuario.getBoolean("preferecia_envio", true); /*optiene prerefencia (key, valDefecto)*/
+		
+		CheckBox checkenvioCifrado = ((CheckBox)findViewById(R.id.radioEnvioCifrado));
+		if(enviaCifradoPref){
+			checkenvioCifrado.setChecked(true);			
+		}
+		else checkenvioCifrado.setChecked(false);
+		
+		super.onResume();
+	}
 	/**************************************Para animacion al presionar boton regresar*************/
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event){
@@ -118,17 +163,18 @@ public class SMSConversacion extends Activity {
 	private void mostrarListView() {
 		ArrayList<SMSConversacionHandler> smsList = new ArrayList<SMSConversacionHandler>();//ArrayList q tendra losSMSPorContactoDa sms y otros datos
 		String fechaS = "", cuerpoS = "" ,numeroS = "", estadoS = "",
-		       personaS = "", nombreP = "", numeroP = "", tipo = "";
+		       personaS = "", nombreP = "", numeroP = "", tipo = "", smsCifrado="";
 
 		Bundle extras = getIntent().getExtras();
 		nombrePersona = extras.getString("nombrePersona");  
 		numerPersona = extras.getString("numero");
 		hilo = extras.getString("hilo");
-		smsTexto = extras.getString("smsCifrado");	//cuando se cifra respuesta
+		smsCifrado = extras.getString("smsCifrado");	//cuando se cifra respuesta
+		smsTexto   = extras.getString("sms");
 		
-		//((EditText) findViewById(R.id.editTSMSOutConv)).setText(smsTexto);	//texto a responder
-		this.setEditResponder(smsTexto);
-		if(smsTexto.length()>0){
+		//((EditText) findViewById(R.id.editTSMSOutConv)).setText(smsTexto);	//texto a responder		
+		if(smsCifrado.length()>0){
+			this.setEditResponder(smsCifrado);
 			((ImageButton)findViewById(R.id.btnCifrarConv)).setEnabled(false);
 			((EditText) findViewById(R.id.editTSMSOutConv)).setEnabled(false);	//si existe texto para cifrar
 		}
@@ -306,20 +352,20 @@ public class SMSConversacion extends Activity {
 		smsTexto = editorTexto.getText().toString(); 
 		
 		if(smsTexto.length()==0){
-		dialogo.setIcon(getResources().getDrawable(android.R.drawable.ic_dialog_info));
-		dialogo.setTitle(R.string.tituloCDialogo);
-	    dialogo.setMessage(R.string.mensaje2CDialogo);
-	    dialogo.show();	}
+			dialogo.setIcon(getResources().getDrawable(android.R.drawable.ic_dialog_info));
+			dialogo.setTitle(R.string.tituloCDialogo);
+			dialogo.setMessage(R.string.mensaje2CDialogo);
+			dialogo.show();	}
 		
 		else{
-		ingresoClave.putExtra("sms", smsTexto);
-		ingresoClave.putExtra("numero", numerPersona);
-		ingresoClave.putExtra("nombrePersona", nombrePersona);
-		ingresoClave.putExtra("hilo", hilo);
-		ingresoClave.putExtra("desdeConversacion", true);
+			ingresoClave.putExtra("sms", smsTexto);
+			ingresoClave.putExtra("numero", numerPersona);
+			ingresoClave.putExtra("nombrePersona", nombrePersona);
+			ingresoClave.putExtra("hilo", hilo);
+			ingresoClave.putExtra("desdeConversacion", true);
 		
-		startActivity(ingresoClave);
-		finish();}
+			startActivity(ingresoClave);
+			finish();}
 		
 	}
 	
@@ -341,7 +387,10 @@ public class SMSConversacion extends Activity {
 		}
 	}
 	
+	/*********************************************Enviar sms**************************************/	
 	private void enviarSMS(String mensaje){
+		CheckBox checkenvioCifrado = ((CheckBox)findViewById(R.id.radioEnvioCifrado));
+		boolean checkCifradoEstado, editContenidoRespuestaActivado;
 		SmsManager sms = SmsManager.getDefault();  
 		Intent intentEnvio = new Intent("SMS_SENT");
 		intentEnvio.putExtra("numero", numerPersona);		//Para que dentro del broatcastReceiver obtenga el num y texto para almacenar sms
@@ -350,8 +399,26 @@ public class SMSConversacion extends Activity {
 		Context contexto = getApplicationContext();//Context de la aplicacion y no de la actividad, optimizar memoria
 		PendingIntent piEnviado = PendingIntent.getBroadcast(contexto, 0, intentEnvio, PendingIntent.FLAG_UPDATE_CURRENT);
 			//RecibeBroadcastEnvio.java recibe el PendingIntent para mostrar toast
-				
-		sms.sendTextMessage(numerPersona, null, mensaje, piEnviado, null); // envia mensaje, RecibeBroadcastEnvio espera respuesta de envio		
+		
+		checkCifradoEstado = checkenvioCifrado.isChecked();
+		editContenidoRespuestaActivado = ((EditText) findViewById(R.id.editTSMSOutConv)).isEnabled();
+		
+		if((checkCifradoEstado == true) && (editContenidoRespuestaActivado == false)){	//envio cifrado activo, sms cifrado
+			sms.sendTextMessage(numerPersona, null, mensaje, piEnviado, null);          // envia mensaje cifrado, RecibeBroadcastEnvio espera respuesta de envio
+			smsTexto = "";
+		}
+		if((checkCifradoEstado == true) && (editContenidoRespuestaActivado == true)){	//envio cifrado activado, sms no cifrado
+			sms.sendTextMessage(numerPersona, null, mensaje, piEnviado, null); 
+			smsTexto = "";
+		}
+		if((checkCifradoEstado == false) && (editContenidoRespuestaActivado == false)){	//envio cifrado desactivado, sms cifrado
+			sms.sendTextMessage(numerPersona, null, smsTexto, piEnviado, null); 
+			smsTexto = "";
+		}
+		if((checkCifradoEstado == false) && (editContenidoRespuestaActivado == true)){	//envio cifrado desactivado, sms no cifrado
+			sms.sendTextMessage(numerPersona, null, mensaje, piEnviado, null); 
+			smsTexto = "";
+		}		
 		new HiloBarraProgreso().execute("");	//ejecuta hilo que muestra circulo de proceso ENVIO, hasta que el SO da respuesta de estado de envio
 	}
 	

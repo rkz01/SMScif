@@ -95,6 +95,9 @@
             android:name="com.SMScif.auxiliares.TemaAyuda"
             android:label="@string/title_activity_ayuda" >
         </activity>        
+        <activity
+            android:name="com.SMScif.preferencias.PreferenciaActivity">
+        </activity>        
     </application>
 
 </manifest>

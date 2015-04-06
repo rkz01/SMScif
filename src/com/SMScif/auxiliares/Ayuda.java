@@ -1,14 +1,19 @@
 package com.SMScif.auxiliares;
 
 import java.util.ArrayList;
+
+import com.SMScif.preferencias.PreferenciaActivity;
 import com.SMScif.smscif.ListaAdaptador;
 import com.SMScif.smscif.R;
+import com.SMScif.smscif.RedactarActivity;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.view.KeyEvent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -100,6 +105,20 @@ public class Ayuda extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.ayuda, menu);
 		return true;
+	}
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {	/*Opciones elegidas desde el menu*/
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	        case R.id.action_configuracion:
+	        	Intent preferencias = new Intent(this,PreferenciaActivity.class);
+	        	startActivity(preferencias);
+	        	overridePendingTransition(R.anim.left_in,R.anim.left_out);	//Animacion al cambiar de vista(animacion de la nueva vista, animacion de esta vista que sale)
+	            return true;
+	        
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
 	}
 	/**************************************Para animacion al presionar boton regresar*************/
 	@Override

@@ -339,12 +339,12 @@ private void cBoxAllClick() {
 
 }
 
-	@Override
+	/*@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.contactos_check, menu);
 		return true;
-	}
+	}*/
 	
 	/****************************************Al presionar flecha regreso************/
 	public void cerrarCifrarContactos(View view){

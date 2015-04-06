@@ -8,12 +8,14 @@ package com.SMScif.smscif;
 
 import com.SMScif.auxiliares.Ayuda;
 import com.SMScif.cifraExixtentes.CifrarContactos;
+import com.SMScif.preferencias.PreferenciaActivity;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
@@ -38,7 +40,33 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-    
+    public boolean onOptionsItemSelected(MenuItem item) {	/*Opciones elegidas desde el menu*/
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	        case R.id.action_configuracion:
+	        	Intent preferencias = new Intent(this,PreferenciaActivity.class);
+	        	startActivity(preferencias);
+	        	overridePendingTransition(R.anim.left_in,R.anim.left_out);	//Animacion al cambiar de vista(animacion de la nueva vista, animacion de esta vista que sale)
+	            return true;
+	            
+	        case R.id.action_nuevoSms:	        	
+	        	String textoVacio = "";//envia a redactar ya que abre por primera vez
+	        	String numeroVacio = ""; //envia a redectar 
+	        	String personaVacio = "";
+	        	Intent abrirRedactar = new Intent(this,RedactarActivity.class); //evento llama layout
+	        	abrirRedactar.putExtra("sms", textoVacio);//aqui esta vacio ya que es el inicio, mensaje plano no existe 
+	        	abrirRedactar.putExtra("smsCifrado", textoVacio);//aqui esta vacio ya que es el inicio, mensaje cifrado no existe qui
+	        	abrirRedactar.putExtra("numero", numeroVacio);//esta vacio numero 
+	        	abrirRedactar.putExtra("nombrePersona", personaVacio);//esta vacio nombre contacto 
+	        	startActivity(abrirRedactar);
+	        	overridePendingTransition(R.anim.left_in,R.anim.left_out);	//Animacion al cambiar de vista(animacion de la nueva vista, animacion de esta vista que sale)
+	            return true;
+	        
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
+    /******************/
     public void redactar(View view){   
     	String textoVacio = "";//envia a redactar ya que abre por primera vez
     	String numeroVacio = ""; //envia a redectar 

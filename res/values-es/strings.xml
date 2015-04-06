@@ -2,7 +2,11 @@
 <resources>
     
     <string name="app_name">SMScif</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Preferencias</string>
+    <string name="action_envioSms">Preferencias al enviar SMS</string>
+    <string name="action_nuevoSms">Nuevo SMS</string>
+    <string name="action_envioSmsCifrado">Predefinir envío de SMS cifrado</string>
+    <string name="action_envioSmsCdescripcion">El destinatario recibirá el SMS de forma cifrada</string>
     <string name="hello_world">Hello world!</string>
     <string name="boton_PrincipalNuevoSMS">Nuevo SMS</string>
     <string name="boton_PrincipalSalir">Salir</string>
@@ -37,7 +41,7 @@
     <string name="mensajeCifradoDialogo">Ingrese clave, para cifrar mensaje</string>
     <string name="mensaje1CDialogo">Ingrese número, para enviar SMS</string>
     <string name="mensaje2CDialogo">Ingrese mensaje de texto</string>
-    <string name="mensaje3CDialogo">¿Desea enviar mensaje sin cifrar?</string>
+    <string name="mensaje3CDialogo">¿Desea almacenar mensaje sin cifrar?</string>
     <string name="deshacer">Deshacer</string>
     <string name="regresar">Regresar</string>
     

@@ -3,6 +3,10 @@
 
     <string name="app_name">SMScif</string>
     <string name="action_settings">Settings</string>
+    <string name="action_envioSms">Settings to send SMS</string>    
+    <string name="action_nuevoSms">New SMS</string>
+    <string name="action_envioSmsCifrado">Set to send encrypt SMS </string>
+    <string name="action_envioSmsCdescripcion">The recipient receives the SMS encrypted form</string>    
     <string name="hello_world">Hello world!</string>
     <string name="boton_PrincipalNuevoSMS">New SMS</string>
     <string name="boton_PrincipalSalir">Exit</string>
@@ -37,7 +41,7 @@
     <string name="mensajeCifradoDialogo">Enter key, to encrypt message</string>
     <string name="mensaje1CDialogo">Enter the number, to send SMS</string>
     <string name="mensaje2CDialogo">Enter the message</string>
-    <string name="mensaje3CDialogo">Do you want to send unencrypted message?</string>
+    <string name="mensaje3CDialogo">Do you want to stock unencrypted message?</string>
     <string name="mensajeEnviado">Message sent</string>
     <string name="deshacer">Undo</string>
     <string name="regresar">Back</string>
